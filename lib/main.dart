@@ -1,4 +1,4 @@
-import 'package:app_test/screens/watch/watch_view.dart';
+import 'package:app_test/screens/watch/movie_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

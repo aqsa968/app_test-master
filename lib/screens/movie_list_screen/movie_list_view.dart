@@ -1,13 +1,14 @@
 import 'package:app_test/helper/global_variable.dart';
 import 'package:app_test/screens/movie_detail/movie_detail_view.dart';
-import 'package:app_test/screens/watch/watch_viewmodel.dart';
+import 'package:app_test/screens/movie_list_screen/watch_viewmodel.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class WatchView extends StatelessWidget {
-  WatchViewModel watchViewModel = Get.put(WatchViewModel());
+class MovieListView extends StatelessWidget {
+  final MovieListViewModel watchViewModel = Get.put(MovieListViewModel());
 
-  WatchView({
+  MovieListView({
     Key? key,
   }) : super(
           key: key,
@@ -20,7 +21,7 @@ class WatchView extends StatelessWidget {
         appBar: PreferredSize(
           preferredSize: Size(100, 100),
           child: Container(
-            margin: EdgeInsets.only(left: 15, right: 15, top: 10,bottom: 20),
+            margin: EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 20),
             child: Row(
               children: const [
                 Text(
@@ -40,7 +41,7 @@ class WatchView extends StatelessWidget {
           ),
         ),
         body: Container(
-          padding: EdgeInsets.only(top: 10,bottom: 5),
+          padding: EdgeInsets.only(top: 10, bottom: 5),
           color: Color(0xffF9F9F9),
           child: ListView.separated(
             shrinkWrap: true,
@@ -53,22 +54,22 @@ class WatchView extends StatelessWidget {
             },
             itemBuilder: (BuildContext context, int index) {
               return InkWell(
-                  onTap: () {
-                    GlobalVariable.imgUrl.value =
-                        'http://image.tmdb.org/t/p/w500' +
-                            watchViewModel.moviesList[index]['poster_path'];
-                    GlobalVariable.releaseDate.value =
-                        watchViewModel.moviesList[index]['release_date'];
-                    GlobalVariable.overView.value =
-                        watchViewModel.moviesList[index]['overview'];
-                    GlobalVariable.movieId.value =
-                        watchViewModel.moviesList[index]['id'];
-                    Get.to(
-                      MovieDetailView(),
-                    );
-                  },
-                  child: chatLayout(index),
-                );
+                onTap: () {
+                  GlobalVariable.imgUrl.value =
+                      'http://image.tmdb.org/t/p/w500' +
+                          watchViewModel.moviesList[index]['poster_path'];
+                  GlobalVariable.releaseDate.value =
+                      watchViewModel.moviesList[index]['release_date'];
+                  GlobalVariable.overView.value =
+                      watchViewModel.moviesList[index]['overview'];
+                  GlobalVariable.movieId.value =
+                      watchViewModel.moviesList[index]['id'];
+                  Get.to(
+                    MovieDetailView(),
+                  );
+                },
+                child: moviesListLayout(index),
+              );
             },
           ),
         ),
@@ -76,7 +77,7 @@ class WatchView extends StatelessWidget {
     );
   }
 
-  Widget chatLayout(int item) {
+  Widget moviesListLayout(int item) {
     return Container(
       height: Get.height * 0.3,
       margin: const EdgeInsets.only(
@@ -102,7 +103,7 @@ class WatchView extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            padding: EdgeInsets.only(left: 10,right: 10),
+            padding: EdgeInsets.only(left: 10, right: 10),
             alignment: Alignment.bottomLeft,
             decoration: BoxDecoration(),
             child: Text(

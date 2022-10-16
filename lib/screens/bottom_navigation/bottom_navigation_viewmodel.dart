@@ -1,4 +1,5 @@
-import 'package:app_test/screens/watch/watch_view.dart';
+import 'package:app_test/screens/movie_detail/movie_detail_view.dart';
+import 'package:app_test/screens/movie_list_screen/movie_list_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -7,15 +8,15 @@ class BottomNavigationViewModel extends GetxController {
   Widget selectView(int index) {
     switch (index) {
       case 0:
-        return WatchView();
+        return MovieListView();
       case 1:
-        return WatchView();
+        return MovieListView();
       case 2:
-        return WatchView();
+        return MovieDetailView();
       case 3:
-        return WatchView();
+        return MovieListView();
       default:
-        return WatchView();
+        return MovieDetailView();
     }
   }
 }
