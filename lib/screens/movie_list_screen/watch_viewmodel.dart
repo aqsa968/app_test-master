@@ -12,15 +12,15 @@ class MovieListViewModel extends GetxController {
   }
 
   loadUpcomingMovies() async {
-    final tmdbWithCustomLogs = TMDB(
-      ApiKeys(GlobalVariable.apiKey, GlobalVariable.readAccessToken),
+    final tmdbWithCustomLogs = TMDB(ApiKeys(GlobalVariable.apiKey, GlobalVariable.readAccessToken),
       logConfig: const ConfigLogger(
         showLogs: true,
         showErrorLogs: true,
       ),
     );
     Map result = await tmdbWithCustomLogs.v3.movies.getUpcoming();
-    moviesList = result['results'];
+  //  moviesList = result['results'];
+    moviesList.addAll(result['results']);
     print(moviesList);
   }
 }

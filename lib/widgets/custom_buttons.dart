@@ -9,7 +9,7 @@ class CustomElevatedBtn extends StatelessWidget {
   final Widget? child;
   final double radius;
 
-  CustomElevatedBtn({
+  const CustomElevatedBtn({
     Key? key,
     this.width = double.infinity,
     this.height = 47,
@@ -25,7 +25,7 @@ class CustomElevatedBtn extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        side: BorderSide(
+        side: const BorderSide(
           width: 2,
           color: Color(0xff61C3F2),
         ),
